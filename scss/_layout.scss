@@ -1,0 +1,28 @@
+// CLASSES
+
+.bottom {
+  width: 100%;
+  margin-top: 50px !important;
+}
+
+.container {
+  @include extra_small {
+    padding: 10px !important;
+  }
+}
+
+.heading {
+  margin-bottom: 60px !important;
+}
+
+.right {
+  @include small {
+    margin-top: 100px !important;
+    margin-bottom: 100px !important;
+  }
+
+  @include extra_small {
+    margin-top: 50px !important;
+    margin-bottom: 50px !important;
+  }
+}

@@ -1,0 +1,286 @@
+//
+// Base styles
+//
+
+.container-1 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0; // See https://github.com/twbs/bootstrap/pull/22740#issuecomment-305868106
+  height: $container-1-height;
+  word-wrap: break-word;
+  background-color: $container-1-bg;
+  background-clip: border-box;
+  border: $container-1-border-width solid $container-1-border-color;
+  @include border-radius($container-1-border-radius);
+
+  > hr {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  > .list-group {
+    border-top: inherit;
+    border-bottom: inherit;
+
+    &:first-child {
+      border-top-width: 0;
+      @include border-top-radius($container-1-inner-border-radius);
+    }
+
+    &:last-child  {
+      border-bottom-width: 0;
+      @include border-bottom-radius($container-1-inner-border-radius);
+    }
+  }
+
+  // Due to specificity of the above selector (`.container-1 > .list-group`), we must
+  // use a child selector here to prevent double borders.
+  > .container-1-header + .list-group,
+  > .list-group + .container-1-footer {
+    border-top: 0;
+  }
+}
+
+.container-1-body {
+  // Enable `flex-grow: 1` for decks and groups so that container-1 blocks take up
+  // as much space as possible, ensuring footers are aligned to the bottom.
+  flex: 1 1 auto;
+  // Workaround for the image size bug in IE
+  // See: https://github.com/twbs/bootstrap/pull/28855
+  min-height: 1px;
+  padding: $container-1-spacer-x;
+  color: $container-1-color;
+}
+
+.container-1-title {
+  margin-bottom: $container-1-spacer-y;
+}
+
+.container-1-subtitle {
+  margin-top: -$container-1-spacer-y / 2;
+  margin-bottom: 0;
+}
+
+.container-1-text:last-child {
+  margin-bottom: 0;
+}
+
+.container-1-link {
+  @include hover() {
+    text-decoration: none;
+  }
+
+  + .container-1-link {
+    margin-left: $container-1-spacer-x;
+  }
+}
+
+//
+// Optional textual caps
+//
+
+.container-1-header {
+  padding: $container-1-spacer-y $container-1-spacer-x;
+  margin-bottom: 0; // Removes the default margin-bottom of <hN>
+  color: $container-1-cap-color;
+  background-color: $container-1-cap-bg;
+  border-bottom: $container-1-border-width solid $container-1-border-color;
+
+  &:first-child {
+    @include border-radius($container-1-inner-border-radius $container-1-inner-border-radius 0 0);
+  }
+}
+
+.container-1-footer {
+  padding: $container-1-spacer-y $container-1-spacer-x;
+  color: $container-1-cap-color;
+  background-color: $container-1-cap-bg;
+  border-top: $container-1-border-width solid $container-1-border-color;
+
+  &:last-child {
+    @include border-radius(0 0 $container-1-inner-border-radius $container-1-inner-border-radius);
+  }
+}
+
+
+//
+// Header navs
+//
+
+.container-1-header-tabs {
+  margin-right: -$container-1-spacer-x / 2;
+  margin-bottom: -$container-1-spacer-y;
+  margin-left: -$container-1-spacer-x / 2;
+  border-bottom: 0;
+}
+
+.container-1-header-pills {
+  margin-right: -$container-1-spacer-x / 2;
+  margin-left: -$container-1-spacer-x / 2;
+}
+
+// container-1 image
+.container-1-img-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: $container-1-img-overlay-padding;
+  @include border-radius($container-1-inner-border-radius);
+}
+
+.container-1-img,
+.container-1-img-top,
+.container-1-img-bottom {
+  flex-shrink: 0; // For IE: https://github.com/twbs/bootstrap/issues/29396
+  width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
+}
+
+.container-1-img,
+.container-1-img-top {
+  @include border-top-radius($container-1-inner-border-radius);
+}
+
+.container-1-img,
+.container-1-img-bottom {
+  @include border-bottom-radius($container-1-inner-border-radius);
+}
+
+
+// container-1 deck
+
+.container-1-deck {
+  .container-1 {
+    margin-bottom: $container-1-deck-margin;
+  }
+
+  @include media-breakpoint-up(sm) {
+    display: flex;
+    flex-flow: row wrap;
+    margin-right: -$container-1-deck-margin;
+    margin-left: -$container-1-deck-margin;
+
+    .container-1 {
+      // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
+      flex: 1 0 0%;
+      margin-right: $container-1-deck-margin;
+      margin-bottom: 0; // Override the default
+      margin-left: $container-1-deck-margin;
+    }
+  }
+}
+
+
+//
+// container-1 groups
+//
+
+.container-1-group {
+  // The child selector allows nested `.container-1` within `.container-1-group`
+  // to display properly.
+  > .container-1 {
+    margin-bottom: $container-1-group-margin;
+  }
+
+  @include media-breakpoint-up(sm) {
+    display: flex;
+    flex-flow: row wrap;
+    // The child selector allows nested `.container-1` within `.container-1-group`
+    // to display properly.
+    > .container-1 {
+      // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
+      flex: 1 0 0%;
+      margin-bottom: 0;
+
+      + .container-1 {
+        margin-left: 0;
+        border-left: 0;
+      }
+
+      // Handle rounded corners
+      @if $enable-rounded {
+        &:not(:last-child) {
+          @include border-right-radius(0);
+
+          .container-1-img-top,
+          .container-1-header {
+            // stylelint-disable-next-line property-blacklist
+            border-top-right-radius: 0;
+          }
+          .container-1-img-bottom,
+          .container-1-footer {
+            // stylelint-disable-next-line property-blacklist
+            border-bottom-right-radius: 0;
+          }
+        }
+
+        &:not(:first-child) {
+          @include border-left-radius(0);
+
+          .container-1-img-top,
+          .container-1-header {
+            // stylelint-disable-next-line property-blacklist
+            border-top-left-radius: 0;
+          }
+          .container-1-img-bottom,
+          .container-1-footer {
+            // stylelint-disable-next-line property-blacklist
+            border-bottom-left-radius: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+//
+// Columns
+//
+
+.container-1-columns {
+  .container-1 {
+    margin-bottom: $container-1-columns-margin;
+  }
+
+  @include media-breakpoint-up(sm) {
+    column-count: $container-1-columns-count;
+    column-gap: $container-1-columns-gap;
+    orphans: 1;
+    widows: 1;
+
+    .container-1 {
+      display: inline-block; // Don't let them vertically span multiple columns
+      width: 100%; // Don't let their width change
+    }
+  }
+}
+
+
+//
+// Accordion
+//
+
+.accordion {
+  overflow-anchor: none;
+
+  > .container-1 {
+    overflow: hidden;
+
+    &:not(:last-of-type) {
+      border-bottom: 0;
+      @include border-bottom-radius(0);
+    }
+
+    &:not(:first-of-type) {
+      @include border-top-radius(0);
+    }
+
+    > .container-1-header {
+      @include border-radius(0);
+      margin-bottom: -$container-1-border-width;
+    }
+  }
+}

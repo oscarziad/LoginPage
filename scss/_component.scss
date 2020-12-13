@@ -1,0 +1,77 @@
+#logo {
+  width: 70px;
+  height: 60px;
+}
+
+.btn {
+  &-color {
+    border-radius: 50px;
+    color: $white;
+    background-image: linear-gradient(to right, $cyan, $purple);
+    padding: 15px;
+    cursor: pointer;
+    border: none !important;
+    margin-top: 40px;
+
+    &:hover {
+      color: $white;
+      background-image: linear-gradient(to right, $purple, $cyan);
+    }
+  }
+
+  &-white {
+    border-radius: 50px;
+    color: $purple;
+    background-color: $white;
+    padding: 8px 40px;
+    cursor: pointer;
+    border: 2px solid $purple !important;
+
+    &:hover {
+      color: $white;
+      background-image: linear-gradient(to right, $cyan, $purple);
+    }
+  }
+}
+
+.container-1 {
+  border-radius: 0 !important;
+  border: none !important;
+
+  &-1 {
+    width: 50%;
+    padding: 40px 30px 10px 30px;
+
+    @include small {
+      width: 100%;
+      padding: 40px 30px 10px 30px;
+    }
+  }
+
+  &-2 {
+    width: 50%;
+    background-image: linear-gradient(to right, $cyan, $purple);
+
+    @include small {
+      width: 100%;
+    }
+
+    @include extra_small {
+      padding: 50px;
+    }
+  }
+}
+
+.form-control-label {
+  font-size: 12px;
+  margin-left: 15px;
+}
+
+.msg-info {
+  padding-left: 15px;
+  margin-bottom: 30px;
+}
+
+.sm-text {
+  font-size: 15px;
+}

@@ -1,0 +1,180 @@
+:-ms-input-placeholder {
+  color: #000 !important;
+}
+
+::-webkit-input-placeholder {
+  color: #000 !important;
+  opacity: 1;
+}
+
+::-ms-input-placeholder {
+  color: #000 !important;
+  opacity: 1;
+}
+
+::placeholder {
+  color: #000 !important;
+  opacity: 1;
+}
+
+a {
+  color: #000;
+}
+
+a:hover {
+  color: #000;
+}
+
+body {
+  color: #000;
+  overflow-x: hidden;
+  height: 100%;
+  background-image: -webkit-gradient(linear, left top, right top, from(#9A51A5), to(#31FDD3));
+  background-image: linear-gradient(to right, #9A51A5, #31FDD3);
+}
+
+input,
+textarea {
+  background-color: #F3E5F5;
+  border-radius: 50px !important;
+  padding: 13px 15px 13px 15px !important;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: none !important;
+  border: 1px solid #F3E5F5 !important;
+  font-size: 16px !important;
+  color: #000 !important;
+  font-weight: 400;
+}
+
+input:focus,
+textarea:focus {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: 1px solid #9A51A5 !important;
+  outline-width: 0;
+  font-weight: 400;
+}
+
+button:focus {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  outline-width: 0;
+}
+
+#logo {
+  width: 70px;
+  height: 60px;
+}
+
+.btn-color {
+  border-radius: 50px;
+  color: #fff;
+  background-image: -webkit-gradient(linear, left top, right top, from(#31FDD3), to(#9A51A5));
+  background-image: linear-gradient(to right, #31FDD3, #9A51A5);
+  padding: 15px;
+  cursor: pointer;
+  border: none !important;
+  margin-top: 40px;
+}
+
+.btn-color:hover {
+  color: #fff;
+  background-image: -webkit-gradient(linear, left top, right top, from(#9A51A5), to(#31FDD3));
+  background-image: linear-gradient(to right, #9A51A5, #31FDD3);
+}
+
+.btn-white {
+  border-radius: 50px;
+  color: #9A51A5;
+  background-color: #fff;
+  padding: 8px 40px;
+  cursor: pointer;
+  border: 2px solid #9A51A5 !important;
+}
+
+.btn-white:hover {
+  color: #fff;
+  background-image: -webkit-gradient(linear, left top, right top, from(#31FDD3), to(#9A51A5));
+  background-image: linear-gradient(to right, #31FDD3, #9A51A5);
+}
+
+.container-1 {
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+.container-2 {
+  width: 50%;
+  padding: 40px 30px 10px 30px;
+}
+
+@media screen and (max-width: 992px) {
+  .container-2 {
+    width: 100%;
+    padding: 40px 30px 10px 30px;
+  }
+}
+
+.container-3 {
+  width: 50%;
+  background-image: -webkit-gradient(linear, left top, right top, from(#31FDD3), to(#9A51A5));
+  background-image: linear-gradient(to right, #31FDD3, #9A51A5);
+}
+
+@media screen and (max-width: 992px) {
+  .container-3 {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container-3 {
+    padding: 50px;
+  }
+}
+
+.form-control-label {
+  font-size: 12px;
+  margin-left: 15px;
+}
+
+.msg-info {
+  padding-left: 15px;
+  margin-bottom: 30px;
+}
+
+.sm-text {
+  font-size: 15px;
+}
+
+.bottom {
+  width: 100%;
+  margin-top: 50px !important;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 10px !important;
+  }
+}
+
+.heading {
+  margin-bottom: 60px !important;
+}
+
+@media screen and (max-width: 992px) {
+  .right {
+    margin-top: 100px !important;
+    margin-bottom: 100px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .right {
+    margin-top: 50px !important;
+    margin-bottom: 50px !important;
+  }
+}
+/*# sourceMappingURL=main.css.map */
